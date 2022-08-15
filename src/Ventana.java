@@ -33,10 +33,11 @@ public class Ventana extends JFrame {
         this.getContentPane().add(panel);
 
         JLabel label = new JLabel("Esto es una etiqueta: ", SwingConstants.CENTER);
-        label.setBounds(10, 10, 200, 30);
+        label.setBounds(10, 10, 250, 30);
         label.setForeground(Color.GRAY);
         label.setBackground(Color.white);
         label.setOpaque(true);
+        label.setFont(new Font("arial", Font.BOLD, 20));
         panel.add(label);
     }
 
