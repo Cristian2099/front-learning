@@ -9,7 +9,7 @@ public class Ventana extends JFrame {
     }
 
     private void setVentana(){
-        setSize(300, 300);
+        setSize(600, 600);
         setTitle("Mi Primera Ventana");
         this.setDefaultCloseOperation(EXIT_ON_CLOSE);
         setResizable(true);
@@ -26,30 +26,18 @@ public class Ventana extends JFrame {
 
     private void setPanels(){
         //this.setLayout(new BoxLayout(this.getContentPane(), BoxLayout.Y_AXIS));
-        JPanel centerPanel = new JPanel();
-        centerPanel.setBounds(0, 0, 100, 100);
-        centerPanel.setBackground(Color.red);
-        this.getContentPane().add(centerPanel);
+        JPanel panel = new JPanel();
+        panel.setLayout(null);
+        panel.setBackground(Color.ORANGE);
+        panel.setBounds(0, 0, 600, 600);
+        this.getContentPane().add(panel);
 
-        JPanel northPanel = new JPanel();
-        northPanel.setBounds(100, 100, 100, 100);
-        northPanel.setBackground(Color.black);
-        this.getContentPane().add(northPanel);
-
-        JPanel southPanel = new JPanel();
-        southPanel.setBounds(0, 100, 100, 100);
-        southPanel.setBackground(Color.blue);
-        this.getContentPane().add(southPanel);
-
-        JPanel eastPanel = new JPanel();
-        eastPanel.setBounds(100, 0, 100, 100);
-        eastPanel.setBackground(Color.green);
-        this.getContentPane().add(eastPanel);
-
-        JPanel westPanel = new JPanel();
-        westPanel.setBounds(200, 200, 200, 100);
-        westPanel.setBackground(Color.YELLOW);
-        this.getContentPane().add(westPanel);
+        JLabel label = new JLabel("Esto es una etiqueta: ", SwingConstants.CENTER);
+        label.setBounds(10, 10, 200, 30);
+        label.setForeground(Color.GRAY);
+        label.setBackground(Color.white);
+        label.setOpaque(true);
+        panel.add(label);
     }
 
     public static void main(String[] args) {
