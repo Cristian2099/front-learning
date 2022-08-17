@@ -1,5 +1,7 @@
 import javax.swing.*;
 import java.awt.*;
+import java.io.File;
+import java.io.IOException;
 
 public class Ventana extends JFrame {
 
@@ -33,11 +35,21 @@ public class Ventana extends JFrame {
         this.getContentPane().add(panel);
 
         JLabel label = new JLabel("Esto es una etiqueta: ", SwingConstants.CENTER);
-        label.setBounds(10, 10, 250, 30);
-        label.setForeground(Color.GRAY);
+        label.setBounds(10, 10, 400, 100);
+        label.setForeground(Color.BLUE);
         label.setBackground(Color.white);
         label.setOpaque(true);
-        label.setFont(new Font("arial", Font.BOLD, 20));
+        File file = new File("AgentOrange.ttf");
+        try {
+            Font font = Font.createFont(Font.TRUETYPE_FONT, file);
+            Font sizeFont = font.deriveFont(20F);
+            label.setFont(sizeFont);
+        } catch (FontFormatException e) {
+            throw new RuntimeException("Error en la creación de la fuente. ", e);
+        } catch (IOException e) {
+            throw new RuntimeException("Error de entrada/salida. ", e);
+        }
+
         panel.add(label);
     }
 
