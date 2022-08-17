@@ -29,7 +29,6 @@ public class Ventana extends JFrame {
     private void setPanels(){
         //this.setLayout(new BoxLayout(this.getContentPane(), BoxLayout.Y_AXIS));
         JPanel panel = new JPanel();
-        panel.setLayout(null);
         panel.setBackground(Color.ORANGE);
         panel.setBounds(0, 0, 600, 600);
         this.getContentPane().add(panel);
@@ -51,6 +50,13 @@ public class Ventana extends JFrame {
         }
 
         panel.add(label);
+
+        ImageIcon gameImg = new ImageIcon("horizon.jpg");
+        JLabel img = new JLabel();
+        img.setBounds(100, 150, 250, 250);
+        img.setIcon(new ImageIcon(gameImg.getImage().getScaledInstance(img.getWidth(), img.getHeight(), Image.SCALE_SMOOTH)));
+
+        panel.add(img);
     }
 
     public static void main(String[] args) {
