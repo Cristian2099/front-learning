@@ -5,6 +5,11 @@ import java.io.IOException;
 
 public class Ventana extends JFrame {
 
+    public JPanel panel;
+    public JLabel label, imgLabel;
+
+    public JButton button;
+
     public Ventana(){
         setVentana();
         initComponents();
@@ -24,16 +29,21 @@ public class Ventana extends JFrame {
 
     private void initComponents(){
         setPanels();
+        //setLabels();
+        setButtons();
     }
 
     private void setPanels(){
         //this.setLayout(new BoxLayout(this.getContentPane(), BoxLayout.Y_AXIS));
-        JPanel panel = new JPanel();
-        panel.setBackground(Color.ORANGE);
-        panel.setBounds(0, 0, 600, 600);
+        panel = new JPanel();
+        this.panel.setBackground(Color.ORANGE);
+        this.panel.setLayout(null);
+        this.panel.setBounds(0, 0, 600, 600);
         this.getContentPane().add(panel);
+    }
 
-        JLabel label = new JLabel("Esto es una etiqueta: ", SwingConstants.CENTER);
+    private void setLabels(){
+        label = new JLabel("Esto es una etiqueta: ", SwingConstants.CENTER);
         label.setBounds(10, 10, 400, 100);
         label.setForeground(Color.BLUE);
         label.setBackground(Color.white);
@@ -49,16 +59,22 @@ public class Ventana extends JFrame {
             throw new RuntimeException("Error de entrada/salida. ", e);
         }
 
-        panel.add(label);
+        this.panel.add(label);
 
         ImageIcon gameImg = new ImageIcon("horizon.jpg");
-        JLabel img = new JLabel();
-        img.setBounds(100, 150, 250, 250);
-        img.setIcon(new ImageIcon(gameImg.getImage().getScaledInstance(img.getWidth(), img.getHeight(), Image.SCALE_SMOOTH)));
+        imgLabel = new JLabel();
+        imgLabel.setBounds(100, 150, 250, 250);
+        imgLabel.setIcon(new ImageIcon(gameImg.getImage().getScaledInstance(imgLabel.getWidth(), imgLabel.getHeight(), Image.SCALE_SMOOTH)));
 
-        panel.add(img);
+        this.panel.add(imgLabel);
     }
 
+    public void setButtons(){
+        button = new JButton("Agregar Labels");
+        button.setBounds(200, 250, 180,40);
+        this.panel.add(button);
+
+    }
     public static void main(String[] args) {
         Ventana v = new Ventana();
         v.setVisible(true);
